@@ -5,5 +5,8 @@ alias f=fossil
 j () { cd -P $HOME/.bookmarks/$1; }
 k () { mkdir -p $HOME/.bookmarks; ln -s "$(pwd)" "$HOME/.bookmarks/$1"; }
 l () { ls -l $HOME/.bookmarks | cut -d ' ' -f 11-13; }
-n () { alacritty --working-directory="$(pwd)" -t="$@" & }
+n () { 
+  alacritty --working-directory="$(pwd)" -t="$@" & 
+  disown
+}
 alias x='exit'
